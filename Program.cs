@@ -18,6 +18,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                           "Введите '1', если Вы - Менеджер\n");
             var inputPost = Console.ReadLine();
 
+            //Пользователь выбирает должность
             switch (inputPost)
             {
                 case "0":
@@ -33,11 +34,13 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                     break;
             }
 
+            myWorker.printPost();
+
             myWorker.Load();
             myWorker.getInfo();
             Console.ReadLine();
 
-            myWorker.changeClientsPhoneNumberBySurname("Иванов", 7777777777);
+            myWorker.changeClientsPhoneNumberBySurname("Иванов", 777777777);
             myWorker.Load();
             myWorker.getInfo();
             Console.ReadLine();

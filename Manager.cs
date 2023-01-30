@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _10._6_HomeWork_ConsoleApp_clients_base
 {
-    class Manager : Worker, getData
+    class Manager : Worker, GetData
     {
         /// <summary>
         /// Создание экземпляра Менеджера
@@ -15,6 +15,5 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         public Manager(string Path) : base(Path)
         {
         }
-
     }
 }

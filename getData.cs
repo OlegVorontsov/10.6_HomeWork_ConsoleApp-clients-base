@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _10._6_HomeWork_ConsoleApp_clients_base
 {
-    interface getData
+    interface GetData
     {
         void getInfo();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _10._6_HomeWork_ConsoleApp_clients_base
 {
-    class Consultant : Worker, getData
+    class Consultant : Worker, GetData
     {
         /// <summary>
         /// Создание экземпляра Консультанта

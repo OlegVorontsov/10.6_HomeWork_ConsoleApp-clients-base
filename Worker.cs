@@ -30,10 +30,19 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         #endregion
 
         #region Методы
+        /// <summary>
+        /// Вывод на экран названия должности
+        /// </summary>
+        public void printPost()
+        {
+            Console.WriteLine($"Выбранная должность: {GetType().Name}");
+        }
+
         public void ClearClients()
         {
             Clients.Clear();
         }
+
         /// <summary>
         /// Загрузка данных о клиентах из Справочника
         /// </summary>
@@ -68,7 +77,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         public virtual void changeClientsPhoneNumberBySurname(string SurnameToChangePhoneNumber, long PhoneNumberToChange)
         {
             ClearClients();
-            Console.WriteLine("Manager");
+            Console.WriteLine($"У {GetType().Name} нет реализации вызванного метода");
         }
         #endregion
     }

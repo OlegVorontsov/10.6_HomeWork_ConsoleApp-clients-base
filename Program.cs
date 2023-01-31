@@ -33,14 +33,14 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                     Environment.Exit(0);
                     break;
             }
-
             myWorker.printPost();
+
+            myWorker.putClients(Path);
+            Console.ReadLine();
 
             myWorker.Load();
             myWorker.getInfo();
-            Console.ReadLine();
-
-            myWorker.changeClientsPhoneNumberBySurname("Иванов", 777777777);
+            myWorker.changeClientsList();
             myWorker.Load();
             myWorker.getInfo();
             Console.ReadLine();

@@ -59,8 +59,14 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         /// </summary>
         /// <param name="SurnameToChangePhoneNumber"></param>
         /// <param name="PhoneNumberToChange"></param>
-        public override void changeClientsPhoneNumberBySurname(string SurnameToChangePhoneNumber, long PhoneNumberToChange)
+        public override void changeClientsList()
         {
+            Console.Write("\nВведите фамилию клиента, чей телефон хотите изменить: ");
+            string Surname = Convert.ToString(Console.ReadLine());
+
+            Console.Write($"\nВведите новый номер телефона клиента {Surname}: ");
+            long PhoneNumberToChange = long.Parse(Console.ReadLine());
+
             int i = 0;
             bool surnameNotFound = true;
             ClearClients();
@@ -71,7 +77,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                 {
                     string[] args = sr.ReadLine().Split('#');
 
-                    if (args[0] != SurnameToChangePhoneNumber)
+                    if (args[0] != Surname)
                     {
                         Clients.Add(new Client
                         {
@@ -100,7 +106,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                 }
                 if (surnameNotFound)
                 {
-                    Console.WriteLine($"Клиента с фамилией {SurnameToChangePhoneNumber} нет в Справочнике");
+                    Console.WriteLine($"Клиента с фамилией {Surname} нет в Справочнике");
                 }
             }
             File.Delete(path);

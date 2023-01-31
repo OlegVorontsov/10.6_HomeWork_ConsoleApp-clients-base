@@ -10,6 +10,8 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
     {
         void getInfo();
 
-        void changeClientsPhoneNumberBySurname(string Surname, long PhoneNumber);
+        void changeClientsList();
+
+        void putClients(string Path);
     }
 }

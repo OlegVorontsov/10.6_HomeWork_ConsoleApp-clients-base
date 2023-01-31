@@ -48,6 +48,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         /// </summary>
         public virtual void Load()
         {
+            ClearClients();
             using (StreamReader sr = new StreamReader(path))
             {
                 titles = sr.ReadLine().Split(',');
@@ -74,7 +75,11 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
             }
         }
 
-        public virtual void changeClientsPhoneNumberBySurname(string SurnameToChangePhoneNumber, long PhoneNumberToChange)
+        public virtual void changeClientsList()
+        {
+        }
+
+        public virtual void putClients(string Path)
         {
             ClearClients();
             Console.WriteLine($"У {GetType().Name} нет реализации вызванного метода");

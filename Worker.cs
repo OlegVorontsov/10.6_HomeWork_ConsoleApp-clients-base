@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _10._6_HomeWork_ConsoleApp_clients_base
 {
-    class Worker
+    class Worker : IGetData
     {
         protected static List<Client> Clients;
 
@@ -24,7 +24,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         {
             path = Path;
             index = 0;
-            titles = new string[6];
+            titles = new string[9];
             Clients = new List<Client>();
         }
         #endregion
@@ -57,7 +57,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                 {
                     string[] args = sr.ReadLine().Split('#');
 
-                    Clients.Add(new Client(args[0], args[1], args[2], long.Parse(args[3]), args[4], args[5]));
+                    Clients.Add(new Client(args[0], args[1], args[2], long.Parse(args[3]), args[4], args[5], args[6], args[7], args[8]));
                 }
             }
         }
@@ -67,7 +67,16 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
         /// </summary>
         public void getInfo()
         {
-            Console.WriteLine($"{titles[0],15}{titles[1],15}{titles[2],15}{titles[3],15}{titles[4],15}{titles[5],20}");
+            Console.WriteLine($"\nСписок клиентов для {GetType().Name}");
+            Console.WriteLine($"{titles[0],15}" +
+                              $"{titles[1],15}" +
+                              $"{titles[2],15}" +
+                              $"{titles[3],15}" +
+                              $"{titles[4],15}" +
+                              $"{titles[5],20}" +
+                              $"{titles[6],25}" +
+                              $"{titles[7],20}" +
+                              $"{titles[8],20}");
 
             foreach (var item in Clients)
             {

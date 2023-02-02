@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _10._6_HomeWork_ConsoleApp_clients_base
 {
-    class Consultant : Worker, GetData
+    class Consultant : Worker
     {
         /// <summary>
         /// Создание экземпляра Консультанта
@@ -48,7 +48,10 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                         Patronymic = args[2],
                         PhoneNumber = long.Parse(args[3]),
                         RangePassport = rangePassportHidden,
-                        NumberPassport = numberPassportHidden
+                        NumberPassport = numberPassportHidden,
+                        DateAndTime = args[6],
+                        WhatChanged = args[7],
+                        WhoChanged = args[8]
                     });
                 }
             }
@@ -86,11 +89,17 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                             Patronymic = args[2],
                             PhoneNumber = long.Parse(args[3]),
                             RangePassport = args[4],
-                            NumberPassport = args[5]
+                            NumberPassport = args[5],
+                            DateAndTime = args[6],
+                            WhatChanged = args[7],
+                            WhoChanged = args[8]
                         });
                     }
                     else
                     {
+                        string nowDate = DateTime.Now.ToShortDateString();
+                        string nowTime = DateTime.Now.ToShortTimeString();
+                        string dateAndTime = $"{nowDate} {nowTime}";
                         Clients.Add(new Client
                         {
                             Surname = args[0],
@@ -98,7 +107,10 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                             Patronymic = args[2],
                             PhoneNumber = PhoneNumberToChange,
                             RangePassport = args[4],
-                            NumberPassport = args[5]
+                            NumberPassport = args[5],
+                            DateAndTime = dateAndTime,
+                            WhatChanged = "/н.тел.",
+                            WhoChanged = $"{GetType().Name}"
                         });
                         surnameNotFound = false;
                     }
@@ -114,7 +126,7 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
             using (StreamWriter sw = new StreamWriter(path, true, Encoding.UTF8))
             {
                 string lineTitles = string.Empty;
-                lineTitles = "Фамилия, Имя, Отчество, Телефон, Серия, Номер паспорта";
+                lineTitles = "Фамилия, Имя, Отчество, Телефон, Серия, Номер паспорта, Дата и время записи, Что изменено, Кто изменил";
                 sw.WriteLine(lineTitles);
                 for (int j = 0; j < i; j++)
                 {
@@ -124,7 +136,10 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
                                  $"{Clients[j].Patronymic}#" +
                                  $"{Clients[j].PhoneNumber}#" +
                                  $"{Clients[j].RangePassport}#" +
-                                 $"{Clients[j].NumberPassport}";
+                                 $"{Clients[j].NumberPassport}#" +
+                                 $"{Clients[j].DateAndTime}#" +
+                                 $"{Clients[j].WhatChanged}#" +
+                                 $"{Clients[j].WhoChanged}";
                     sw.WriteLine(lineClient);
                 }
             }

@@ -35,11 +35,15 @@ namespace _10._6_HomeWork_ConsoleApp_clients_base
             }
             myWorker.printPost();
 
-            myWorker.putClients(Path);
-            Console.ReadLine();
-
             myWorker.Load();
             myWorker.getInfo();
+            Console.ReadLine();
+
+            myWorker.putClients(Path);
+            myWorker.Load();
+            myWorker.getInfo();
+            Console.ReadLine();
+
             myWorker.changeClientsList();
             myWorker.Load();
             myWorker.getInfo();
